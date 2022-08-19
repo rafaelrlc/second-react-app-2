@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 import classes from "./AddUser.module.css";
 import Button from "../UI/Button";
+import ErrorModal from "../UI/ErrorModal";
 const AddUser = (props) => {
   const [enteredUserName, setUserName] = useState("");
   const [enteredUserAge, setUserAge] = useState("");
+  const [errorMessage, setError] = useState(null);
 
   const addUserHandler = (event) => {
     event.preventDefault();
@@ -12,10 +14,16 @@ const AddUser = (props) => {
       enteredUserName.trim().length === 0 ||
       enteredUserName.trim().length === 0
     ) {
-      console.log("no empyt input please"); //abrir pop-pup
+      setError({
+        title: "Input Inválido.",
+        message: "Não é permitido espaços em branco.",
+      });
       return;
     } else if (+enteredUserAge < 1) {
-      console.log("invalid age"); //abrir pop-pup
+      setError({
+        title: "Input Inválido.",
+        message: "Não é permitido idade menor que '1'.",
+      });
       return;
     } else {
       console.log(enteredUserName, enteredUserAge);
@@ -23,6 +31,10 @@ const AddUser = (props) => {
       setUserName("");
       setUserAge("");
     }
+  };
+
+  const erroHandler = () => {
+    setError(null);
   };
 
   const usernameChangeHandler = (event) => {
@@ -33,26 +45,34 @@ const AddUser = (props) => {
   };
 
   return (
-    <Card className={classes.add_user__box}>
-      {" "}
-      <form onSubmit={addUserHandler}>
-        <label htmlFor="username">Username</label>
-        <input
-          onChange={usernameChangeHandler}
-          id="username"
-          type="text"
-          value={enteredUserName}
-        ></input>
-        <label htmlFor="age">Age (Years)</label>
-        <input
-          onChange={ageChangeHandler}
-          id="age"
-          type="number"
-          value={enteredUserAge}
-        ></input>
-        <Button type="submit">Add User</Button>
-      </form>
-    </Card>
+    <div>
+      {errorMessage && (
+        <ErrorModal
+          title={errorMessage.title}
+          message={errorMessage.message}
+          onConfirm={erroHandler}
+        ></ErrorModal>
+      )}
+      <Card className={classes.add_user__box}>
+        <form onSubmit={addUserHandler}>
+          <label htmlFor="username">Nome de Usuário:</label>
+          <input
+            onChange={usernameChangeHandler}
+            id="username"
+            type="text"
+            value={enteredUserName}
+          ></input>
+          <label htmlFor="age">Idade:</label>
+          <input
+            onChange={ageChangeHandler}
+            id="age"
+            type="number"
+            value={enteredUserAge}
+          ></input>
+          <Button type="submit">Add User</Button>
+        </form>
+      </Card>
+    </div>
   );
 };
 

@@ -9,13 +9,17 @@ const UserData = (props) => {
       <ul>
         {props.userList.map((user) => (
           <li key={user.id}>
-            {user.name} ({user.age}) years old
-            <button
-              className={classes.button}
-              onClick={() => props.deleteUser(user.id)}
-            >
-              DELETE
-            </button>
+            {user.name} ({user.age}) years
+            <div className={classes.buttons}>
+              {" "}
+              <button className={classes.button_edit}>Edit</button>
+              <button
+                className={classes.button_delete}
+                onClick={() => props.deleteUser(user.id)}
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>

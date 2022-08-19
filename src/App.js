@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AddUser from "./Components/Users/AddUser";
 import UserData from "./Components/Users/UserData";
-
 const INITIAL_USERS = [
   {
     name: "John Doe",

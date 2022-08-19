@@ -3,8 +3,9 @@
 }
 
 .user {
+  padding: 20px;
   margin: 2rem auto;
-  width: 35%;
+  width: 45%;
 }
 
 .user ul {
@@ -13,7 +14,6 @@
 
 .user li {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
   list-style: none;
@@ -27,17 +27,37 @@
   margin-bottom: 0;
 }
 
-.button {
-  padding: 0.5rem 1rem;
+.button_delete {
+  margin-left: auto;
+  padding: 0.4rem 0.7rem;
   background-color: red;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  border-color: #e74c3c;
+  border: 1px solid red;
 }
 
-.button:hover {
-  transition: 2000ms;
-  background-color: #e74c3c;
-  border-color: #e74c3c;
+.button_delete:hover {
+  transition: 200ms;
+  background-color: #761f15;
+}
+
+.button_edit {
+  margin-left: auto;
+  padding: 0.4rem 0.7rem;
+  background-color: rgb(138, 137, 137);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid rgb(115, 114, 114);
+}
+.button_edit:hover {
+  transition: 200ms;
+  background-color: rgb(107, 106, 106);
+}
+
+.buttons {
+  display: flex;
+  margin-left: auto;
+  gap: 0.5rem;
 }
