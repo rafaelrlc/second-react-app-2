@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+}
+
+.user {
+  margin: 2rem auto;
+  width: 35%;
+}
+
+.user ul {
+  padding: 0;
+}
+
+.user li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  list-style: none;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border: 2px solid #ccc;
+  padding: 0.35rem;
+}
+
+.user li:last-child {
+  margin-bottom: 0;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-color: #e74c3c;
+}
+
+.button:hover {
+  transition: 2000ms;
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+}

@@ -1,0 +1,18 @@
+.add_user__box {
+  margin: 2rem auto;
+  color: black;
+  width: 35%;
+}
+
+.add_user__box label {
+  margin-bottom: 5rem;
+  font-weight: bold;
+}
+
+.add_user__box input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  padding: 0.35rem;
+}
