@@ -6,6 +6,7 @@ import ErrorModal from "../UI/ErrorModal";
 const AddUser = (props) => {
   const [enteredUserName, setUserName] = useState("");
   const [enteredUserAge, setUserAge] = useState("");
+  const [enteredUserLocation, setUserLocation] = useState("");
   const [errorMessage, setError] = useState(null);
 
   const addUserHandler = (event) => {
@@ -27,7 +28,7 @@ const AddUser = (props) => {
       return;
     } else {
       console.log(enteredUserName, enteredUserAge);
-      props.addUser(enteredUserName, enteredUserAge);
+      props.addUser(enteredUserName, enteredUserAge, enteredUserLocation);
       setUserName("");
       setUserAge("");
     }
@@ -43,7 +44,9 @@ const AddUser = (props) => {
   const ageChangeHandler = (event) => {
     setUserAge(event.target.value);
   };
-
+  const locationChangeHandler = (event) => {
+    setUserLocation(event.target.value);
+  };
   return (
     <div>
       {errorMessage && (
@@ -55,7 +58,7 @@ const AddUser = (props) => {
       )}
       <Card className={classes.add_user__box}>
         <form onSubmit={addUserHandler}>
-          <label htmlFor="username">Nome de Usuário:</label>
+          <label htmlFor="username">Nome:</label>
           <input
             onChange={usernameChangeHandler}
             id="username"
@@ -68,6 +71,13 @@ const AddUser = (props) => {
             id="age"
             type="number"
             value={enteredUserAge}
+          ></input>
+          <label htmlFor="location">Localização:</label>
+          <input
+            onChange={locationChangeHandler}
+            id="location"
+            type="text"
+            value={enteredUserLocation}
           ></input>
           <Button type="submit">Add User</Button>
         </form>

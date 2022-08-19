@@ -9,7 +9,7 @@ const UserData = (props) => {
       <ul>
         {props.userList.map((user) => (
           <li key={user.id}>
-            {user.name} ({user.age}) years
+            {user.name} tem {user.age} anos e mora em {user.location}
             <div className={classes.buttons}>
               {" "}
               <button className={classes.button_edit}>Edit</button>
