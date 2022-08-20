@@ -5,7 +5,7 @@
 .user {
   padding: 20px;
   margin: 2rem auto;
-  width: 45%;
+  width: 35%;
 }
 
 .user ul {
@@ -18,7 +18,7 @@
   margin-bottom: 1rem;
   list-style: none;
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border: 2px solid #ccc;
   padding: 0.35rem;
 }
@@ -35,6 +35,7 @@
   font-weight: bold;
   cursor: pointer;
   border: 1px solid red;
+  border-radius: 4px;
 }
 
 .button_delete:hover {
@@ -50,6 +51,7 @@
   font-weight: bold;
   cursor: pointer;
   border: 1px solid rgb(115, 114, 114);
+  border-radius: 4px;
 }
 .button_edit:hover {
   transition: 200ms;

@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Card from "../UI/Card";
 import classes from "./AddUser.module.css";
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
 import Wrapper from "../Helpers/Wrapper";
 const AddUser = (props) => {
-  const [enteredUserName, setUserName] = useState("");
-  const [enteredUserAge, setUserAge] = useState("");
-  const [enteredUserLocation, setUserLocation] = useState("");
+  const nameInputRef = useRef();
+  const ageInputRef = useRef();
+  const locationInputRef = useRef();
+
   const [errorMessage, setError] = useState(null);
 
   const addUserHandler = (event) => {
     event.preventDefault();
+    const enteredUserName = nameInputRef.current.value;
+    const enteredUserAge = ageInputRef.current.value;
+    const enteredUserLocation = locationInputRef.current.value;
+
     if (
       enteredUserName.trim().length === 0 ||
       enteredUserAge.trim().length === 0 ||
@@ -29,11 +34,11 @@ const AddUser = (props) => {
       });
       return;
     } else {
-      console.log(enteredUserName, enteredUserAge);
       props.addUser(enteredUserName, enteredUserAge, enteredUserLocation);
-      setUserName("");
-      setUserAge("");
     }
+    nameInputRef.current.value = "";
+    ageInputRef.current.value = "";
+    locationInputRef.current.value = "";
   };
 
   const erroHandler = () => {
@@ -53,24 +58,24 @@ const AddUser = (props) => {
         <form onSubmit={addUserHandler}>
           <label htmlFor="username">Nome:</label>
           <input
-            onChange={(event) => setUserName(event.target.value)}
+            //onChange={(event) => setUserName(event.target.value)}
             id="username"
             type="text"
-            value={enteredUserName}
+            ref={nameInputRef}
           ></input>
           <label htmlFor="age">Idade:</label>
           <input
-            onChange={(event) => setUserAge(event.target.value)}
+            //onChange={(event) => setUserAge(event.target.value)}
             id="age"
             type="number"
-            value={enteredUserAge}
+            ref={ageInputRef}
           ></input>
           <label htmlFor="location">Localização:</label>
           <input
-            onChange={(event) => setUserLocation(event.target.value)}
+            //onChange={(event) => setUserLocation(event.target.value)}
             id="location"
             type="text"
-            value={enteredUserLocation}
+            ref={locationInputRef}
           ></input>
           <Button type="submit">Add User</Button>
         </form>
