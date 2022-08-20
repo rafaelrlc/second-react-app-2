@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import AddUser from "./Components/Users/AddUser";
 import UserData from "./Components/Users/UserData";
 const INITIAL_USERS = [
@@ -35,17 +35,16 @@ function App() {
       name: newuserName,
       age: newuserAge,
       id: Math.random().toString(),
-      location : newuserLocation
-
+      location: newuserLocation,
     };
     setUserList((prevUserList) => [...prevUserList, new_user]);
   };
 
   return (
-    <div>
+    <Fragment>
       <AddUser addUser={addUserHandler}></AddUser>
       <UserData userList={userlist} deleteUser={removeUser}></UserData>
-    </div>
+    </Fragment>
   );
 }
 
