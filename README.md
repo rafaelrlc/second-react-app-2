@@ -1,5 +1,5 @@
 ### SEGUNDO PROJETO PARA PRATICAR REACT
-
+(muitos commits pq to usando dual)
 ## Available Scripts
 
 In the project directory, you can run:
